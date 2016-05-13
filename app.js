@@ -44,6 +44,17 @@ app.get('/stories/:story',story.getStory);
 app.get('/logout',user.logout);
 app.get('/techStack',routes.techStack);
 
+app.use(function(req, res) {
+     console.log(chalk.red("Error: 404"));
+     res.status(404).render('404');
+});
+
+app.use(function(error, req, res, next) {
+     console.log(chalk.red('Error : 500'+error))
+     res.status(500).render('500');
+});
+
+
 
 var port = process.env.PORT || 3000;
 
