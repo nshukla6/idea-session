@@ -11,6 +11,7 @@
     "ejs": "*",
     "express": "3.2.6",
     "express-session": "^1.13.0",
-    "mongoose": "^4.4.16"
+    "mongoose": "^4.4.16",
+	 "bcrypt": "^0.8.5"
   }
 }
