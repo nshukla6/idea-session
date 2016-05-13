@@ -41,7 +41,9 @@ exports.login=function(req,res){
 
 
     
-       if(password===user.password){
+       
+     user.comparePassword(password,function(err,isMatch){
+       if(isMatch && isMatch==true){
          console.log("Authentication Sucessfull");
          req.session.username=user.username;
          req.session.loggedIn=true;
@@ -54,7 +56,7 @@ exports.login=function(req,res){
          res.render("login",{errorMessage:message});
          return;
        }
-     
+     });
     });
   };
   
