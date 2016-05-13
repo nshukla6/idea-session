@@ -42,7 +42,7 @@ exports.login=function(req,res){
 
     
        
-     bcrypt.comparePassword(password,function(err,isMatch){
+     User.comparePassword(password,function(err,isMatch){
        if(isMatch && isMatch==true){
          console.log("Authentication Sucessfull");
          req.session.username=user.username;
