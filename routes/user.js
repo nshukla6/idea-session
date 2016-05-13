@@ -1,6 +1,6 @@
 var mongoose = require( 'mongoose' );
 var User = mongoose.model( 'User' );
-
+var bcrypt=require('bcrypt');
 
 exports.doCreate=function(req,res){
    var username=req.body.username;
@@ -42,7 +42,7 @@ exports.login=function(req,res){
 
     
        
-     user.comparePassword(password,function(err,isMatch){
+     bcrypt.comparePassword(password,function(err,isMatch){
        if(isMatch && isMatch==true){
          console.log("Authentication Sucessfull");
          req.session.username=user.username;
